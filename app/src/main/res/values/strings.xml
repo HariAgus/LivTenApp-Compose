@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Live Attendance App</string>
+    <string name="hello_sign_in_your_account">Hello, Sign in Your Account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="history">History</string>
+    <string name="current_location">Current Location</string>
+    <string name="default_text" translatable="false">-</string>
+    <string name="your_photo">Your Photo</string>
+    <string name="check_in">Check-In</string>
+    <string name="check_out">Check-out</string>
+    <string name="profile">Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_language">Change Language</string>
+    <string name="logout">Logout</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="attendance">Attendance</string>
+    <string name="success">Success</string>
+    <string name="not_granted">Not Granted</string>
+    <string name="required_permission">Required Permission</string>
+    <string name="search_your_location">Search your location...</string>
+    <string name="failed_to_capture_image">Failed to Capture Image</string>
+    <string name="alert">Alert</string>
+    <string name="please_take_your_photo">Please take your photo</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="success_check_in">Success Check-In</string>
+    <string name="success_check_out">Success Check-Out</string>
+    <string name="something_wrong">Something Wrong</string>
+    <string name="your_already_present">You Already Present</string>
+    <string name="your_password_didnt_match">Your password din\'t match</string>
+    <string name="your_password_has_been_update">Your Password has been update</string>
+    <string name="please_field_your_email">Please field your email</string>
+    <string name="please_use_valid_email">Please use valid email</string>
+    <string name="please_field_your_password">Please field your password</string>
+    <string name="failed">Failed</string>
+</resources>
