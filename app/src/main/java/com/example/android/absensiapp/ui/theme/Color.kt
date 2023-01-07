@@ -14,6 +14,7 @@ val AlertColor = Color(0xFFED6363)
 val BgColor1 = Color(0xFF1F1D2B)
 val BgColor2 = Color(0xFF2B2937)
 val BgColor3 = Color(0xFF242231)
+val BgColor4 = Color(0xFF252836)
 
 val TextColorPrimary = Color(0xFFF1F0F2)
 val TextColorSecond = Color(0xFF999999)

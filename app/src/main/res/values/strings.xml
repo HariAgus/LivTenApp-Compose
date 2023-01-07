@@ -43,4 +43,7 @@
     <string name="image_logo_app">Image Logo App</string>
     <string name="image_arrow_back">Image Arrow Back</string>
     <string name="leading_icon">Leading Icon</string>
+    <string name="image_photo_profile">Image Photo Profile</string>
+    <string name="sample_name">Hari Agus W</string>
+    <string name="sample_email">haryagus2023@gmail.com</string>
 </resources>
