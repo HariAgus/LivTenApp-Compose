@@ -48,7 +48,8 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
+
+
     }
 
     private fun init() {
@@ -63,7 +64,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun onClick() {
-        binding?.calendarViewHistory?.setOnDayClickListener(object : OnDayClickListener{
+        binding?.calendarViewHistory?.setOnDayClickListener(object : OnDayClickListener {
             override fun onDayClick(eventDay: EventDay) {
                 val clickDayCalendar = eventDay.calendar
                 binding?.tvCurrentDate?.text = clickDayCalendar.toDate().toDay()
@@ -75,17 +76,23 @@ class HistoryFragment : Fragment() {
                         val checkOutTime: String
                         val updateDate = dataHistory?.createdAt
                         val calendarUpdated = updateDate?.fromTimeStampToDate()?.toCalendar()
-                        if (clickDayCalendar.get(Calendar.DAY_OF_MONTH) == clickDayCalendar.get(Calendar.DAY_OF_MONTH)) {
+                        if (clickDayCalendar.get(Calendar.DAY_OF_MONTH) == clickDayCalendar.get(
+                                Calendar.DAY_OF_MONTH
+                            )
+                        ) {
                             if (dataHistory?.status == 1) {
                                 checkInTime = dataHistory?.detail?.get(0)?.createdAt.toString()
                                 checkOutTime = dataHistory?.detail?.get(1)?.createdAt.toString()
 
-                                binding?.tvTimeCheckIn?.text = checkInTime.fromTimeStampToDate()?.toTime()
-                                binding?.tvTimeCheckOut?.text = checkOutTime.fromTimeStampToDate()?.toTime()
+                                binding?.tvTimeCheckIn?.text =
+                                    checkInTime.fromTimeStampToDate()?.toTime()
+                                binding?.tvTimeCheckOut?.text =
+                                    checkOutTime.fromTimeStampToDate()?.toTime()
                                 break
                             } else {
                                 checkInTime = dataHistory?.detail?.get(0)?.createdAt.toString()
-                                binding?.tvTimeCheckIn?.text = checkInTime.fromTimeStampToDate()?.toTime()
+                                binding?.tvTimeCheckIn?.text =
+                                    checkInTime.fromTimeStampToDate()?.toTime()
                             }
                         }
                     }
@@ -99,13 +106,15 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setupCalendar() {
-        binding?.calendarViewHistory?.setOnPreviousPageChangeListener(object : OnCalendarPageChangeListener{
+        binding?.calendarViewHistory?.setOnPreviousPageChangeListener(object :
+            OnCalendarPageChangeListener {
             override fun onChange() {
                 requestDataHistory()
             }
         })
 
-        binding?.calendarViewHistory?.setOnForwardPageChangeListener(object : OnCalendarPageChangeListener{
+        binding?.calendarViewHistory?.setOnForwardPageChangeListener(object :
+            OnCalendarPageChangeListener {
             override fun onChange() {
                 requestDataHistory()
             }
@@ -128,7 +137,7 @@ class HistoryFragment : Fragment() {
         binding?.pbHistory?.visibility = View.VISIBLE
         ApiServices.getLiveAttendanceServices()
             .getHistoryAttendance("Bearer $token", fromDate, toDate)
-            .enqueue(object : Callback<HistoryResponse>{
+            .enqueue(object : Callback<HistoryResponse> {
                 override fun onResponse(
                     call: Call<HistoryResponse>,
                     response: Response<HistoryResponse>
@@ -149,37 +158,66 @@ class HistoryFragment : Fragment() {
                                     checkInTime = dataHistory.detail?.get(0)?.createdAt.toString()
                                     checkOutTime = dataHistory.detail?.get(1)?.createdAt.toString()
 
-                                    calendarHistoryCheckOut = checkOutTime.fromTimeStampToDate()?.toCalendar()
+                                    calendarHistoryCheckOut =
+                                        checkOutTime.fromTimeStampToDate()?.toCalendar()
 
                                     if (calendarHistoryCheckOut != null) {
-                                        events.add(EventDay(calendarHistoryCheckOut, R.drawable.ic_baseline_check_circle_primary_24))
+                                        events.add(
+                                            EventDay(
+                                                calendarHistoryCheckOut,
+                                                R.drawable.ic_baseline_check_circle_primary_24
+                                            )
+                                        )
                                     }
 
-                                    if (currentDate.get(Calendar.DAY_OF_MONTH) == calendarHistoryCheckOut?.get(Calendar.DAY_OF_MONTH)) {
-                                        binding?.tvCurrentDate?.text = checkInTime.fromTimeStampToDate()?.toDay()
-                                        binding?.tvCurrentMonth?.text = checkInTime.fromTimeStampToDate()?.toMonth()
-                                        binding?.tvTimeCheckIn?.text = checkInTime.fromTimeStampToDate()?.toTime()
-                                        binding?.tvTimeCheckOut?.text = checkInTime.fromTimeStampToDate()?.toTime()
+                                    if (currentDate.get(Calendar.DAY_OF_MONTH) == calendarHistoryCheckOut?.get(
+                                            Calendar.DAY_OF_MONTH
+                                        )
+                                    ) {
+                                        binding?.tvCurrentDate?.text =
+                                            checkInTime.fromTimeStampToDate()?.toDay()
+                                        binding?.tvCurrentMonth?.text =
+                                            checkInTime.fromTimeStampToDate()?.toMonth()
+                                        binding?.tvTimeCheckIn?.text =
+                                            checkInTime.fromTimeStampToDate()?.toTime()
+                                        binding?.tvTimeCheckOut?.text =
+                                            checkInTime.fromTimeStampToDate()?.toTime()
                                     }
                                 } else {
                                     checkInTime = dataHistory?.detail?.get(0)?.createdAt.toString()
-                                    calendarHistoryCheckIn = checkInTime.fromTimeStampToDate()?.toCalendar()
+                                    calendarHistoryCheckIn =
+                                        checkInTime.fromTimeStampToDate()?.toCalendar()
 
                                     if (calendarHistoryCheckIn != null) {
-                                        events.add(EventDay(calendarHistoryCheckIn, R.drawable.ic_baseline_check_circle_yellow_light_24))
+                                        events.add(
+                                            EventDay(
+                                                calendarHistoryCheckIn,
+                                                R.drawable.ic_baseline_check_circle_yellow_light_24
+                                            )
+                                        )
                                     }
 
-                                    if (currentDate.get(Calendar.DAY_OF_MONTH) == calendarHistoryCheckIn?.get(Calendar.DAY_OF_MONTH)) {
-                                        binding?.tvCurrentDate?.text = checkInTime.fromTimeStampToDate()?.toDay()
-                                        binding?.tvCurrentMonth?.text = checkInTime.fromTimeStampToDate()?.toMonth()
-                                        binding?.tvTimeCheckIn?.text = checkInTime.fromTimeStampToDate()?.toTime()
+                                    if (currentDate.get(Calendar.DAY_OF_MONTH) == calendarHistoryCheckIn?.get(
+                                            Calendar.DAY_OF_MONTH
+                                        )
+                                    ) {
+                                        binding?.tvCurrentDate?.text =
+                                            checkInTime.fromTimeStampToDate()?.toDay()
+                                        binding?.tvCurrentMonth?.text =
+                                            checkInTime.fromTimeStampToDate()?.toMonth()
+                                        binding?.tvTimeCheckIn?.text =
+                                            checkInTime.fromTimeStampToDate()?.toTime()
                                     }
                                 }
                             }
                         }
                         binding?.calendarViewHistory?.setEvents(events)
                     } else {
-                        MyDialog.dynamicDialog(context, getString(R.string.alert), getString(R.string.something_wrong))
+                        MyDialog.dynamicDialog(
+                            context,
+                            getString(R.string.alert),
+                            getString(R.string.something_wrong)
+                        )
                     }
                 }
 

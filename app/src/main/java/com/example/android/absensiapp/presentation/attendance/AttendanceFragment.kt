@@ -103,6 +103,8 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     ): View? {
         binding = FragmentAttendanceBinding.inflate(inflater, container, false)
         bindingBottomSheet = binding?.layoutBottomSheet
+
+
         return binding?.root
     }
 
@@ -126,9 +128,11 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupMaps()
+        /*setupMaps()
         init()
-        onClick()
+        onClick()*/
+
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
