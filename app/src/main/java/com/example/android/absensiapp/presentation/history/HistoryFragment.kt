@@ -30,10 +30,6 @@ import java.util.*
 
 class HistoryFragment : Fragment() {
 
-    private companion object {
-        private val TAG: String = HistoryFragment::class.java.simpleName
-    }
-
     private var binding: FragmentHistoryBinding? = null
     private val events = mutableListOf<EventDay>()
     private var dataHistories: List<History?>? = null
@@ -232,6 +228,10 @@ class HistoryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    private companion object {
+        private val TAG: String = HistoryFragment::class.java.simpleName
     }
 
 }
