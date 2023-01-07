@@ -5,9 +5,11 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.mutableStateOf
 import com.example.android.absensiapp.R
-import com.example.android.absensiapp.databinding.ActivityForgotPasswordBinding
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.model.ForgotPasswordResponse
 import com.example.android.absensiapp.networking.ApiServices
@@ -22,27 +24,29 @@ import java.io.IOException
 
 class ForgotPasswordActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityForgotPasswordBinding
+    private var mFieldTextPassword = mutableStateOf("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        init()
-        onClick()
+        setContent {
+            ForgotPasswordScreen(
+                text = mFieldTextPassword.value,
+                onValueChange = {
+                    mFieldTextPassword.value = it
+                },
+                onClickArrowToolbar = {
+                    finish()
+                },
+                onClickForgotPassword = {
+                    onClickForgotPassword()
+                }
+            )
+        }
     }
 
-    private fun onClick() {
-        binding.tbForgotPassword.setNavigationOnClickListener {
-            finish()
-        }
-
-        binding.btnForgotPassword.setOnClickListener {
-            val email = binding.etEmailForgotPassword.text.toString()
-            if (isFormValid(email)) {
-                forgotPassToServer(email)
-            }
+    private fun onClickForgotPassword() {
+        if (isFormValid(mFieldTextPassword.value)) {
+            forgotPassToServer(mFieldTextPassword.value)
         }
     }
 
@@ -96,7 +100,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                             }
                         } catch (e: IOException) {
                             e.printStackTrace()
-                            Log.e(ForgotPasswordActivity.TAG, "Error: ${e.message}")
+                            Log.e(TAG, "Error: ${e.message}")
                         }
                     }
                 }
@@ -105,22 +109,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private fun isFormValid(email: String): Boolean {
         if (email.isEmpty()) {
-            binding.etEmailForgotPassword.error = getString(R.string.please_field_your_email)
-            binding.etEmailForgotPassword.requestFocus()
+            Toast.makeText(this, R.string.please_field_your_email, Toast.LENGTH_SHORT).show()
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.etEmailForgotPassword.error = getString(R.string.please_use_valid_email)
-            binding.etEmailForgotPassword.requestFocus()
+            Toast.makeText(this, R.string.please_use_valid_email, Toast.LENGTH_SHORT).show()
         } else {
-            binding.etEmailForgotPassword.error = null
             return true
         }
         return false
     }
 
-    private fun init() {
-        setSupportActionBar(binding.tbForgotPassword)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
 
     companion object {
         private val TAG = ForgotPasswordActivity::class.java.simpleName

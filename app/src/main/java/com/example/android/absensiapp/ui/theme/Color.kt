@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.presentation.splash.ui.theme
+package com.example.android.absensiapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -17,3 +17,4 @@ val BgColor3 = Color(0xFF242231)
 
 val TextColorPrimary = Color(0xFFF1F0F2)
 val TextColorSecond = Color(0xFF999999)
+val TextColorHint = Color(0xFF504F5E)

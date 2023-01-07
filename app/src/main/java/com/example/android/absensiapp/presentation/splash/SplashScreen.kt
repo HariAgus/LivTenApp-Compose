@@ -17,8 +17,8 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.example.android.absensiapp.R
-import com.example.android.absensiapp.presentation.splash.ui.theme.BgColor1
-import com.example.android.absensiapp.presentation.splash.ui.theme.DIMENS_120dp
+import com.example.android.absensiapp.ui.theme.BgColor1
+import com.example.android.absensiapp.ui.theme.DIMENS_120dp
 import kotlinx.coroutines.delay
 
 @Composable
