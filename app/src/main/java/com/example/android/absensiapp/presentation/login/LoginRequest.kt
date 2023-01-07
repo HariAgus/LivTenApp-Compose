@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.views.login
+package com.example.android.absensiapp.presentation.login
 
 import com.google.gson.annotations.SerializedName
 

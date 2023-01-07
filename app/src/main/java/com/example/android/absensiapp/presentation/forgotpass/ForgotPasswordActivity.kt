@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.views.forgotpass
+package com.example.android.absensiapp.presentation.forgotpass
 
 import android.os.Bundle
 import android.os.Handler

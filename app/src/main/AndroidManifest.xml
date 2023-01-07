@@ -23,18 +23,18 @@
         android:theme="@style/AppTheme"
         tools:targetApi="n">
 
-        <activity android:name=".views.changepass.ChangePasswordActivity" />
-        <activity android:name=".views.forgotpass.ForgotPasswordActivity" />
-        <activity android:name=".views.login.LoginActivity" />
-        <activity android:name=".views.splash.SplashActivity">
+        <activity android:name=".presentation.changepass.ChangePasswordActivity" />
+        <activity android:name=".presentation.forgotpass.ForgotPasswordActivity" />
+        <activity android:name=".presentation.login.LoginActivity" />
+        <activity android:name=".presentation.splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.main.MainActivity"/>
-
+        <activity android:name=".presentation.main.MainActivity"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

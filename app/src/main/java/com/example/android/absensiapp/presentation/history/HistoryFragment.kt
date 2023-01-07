@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.views.history
+package com.example.android.absensiapp.presentation.history
 
 import android.os.Bundle
 import android.util.Log
@@ -25,7 +25,6 @@ import com.example.android.absensiapp.networking.ApiServices
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.reflect.Array.get
 import java.util.*
 
 

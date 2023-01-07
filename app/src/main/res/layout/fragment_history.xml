@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.history.HistoryFragment">
+    tools:context=".presentation.history.HistoryFragment">
 
     <ScrollView
         android:layout_width="match_parent"

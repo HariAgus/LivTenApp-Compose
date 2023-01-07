@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.views.profile
+package com.example.android.absensiapp.presentation.profile
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -18,10 +18,9 @@ import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.LogoutResponse
 import com.example.android.absensiapp.networking.ApiServices
-import com.example.android.absensiapp.views.changepass.ChangePasswordActivity
-import com.example.android.absensiapp.views.login.LoginActivity
-import com.example.android.absensiapp.views.main.MainActivity
-import org.jetbrains.anko.startActivity
+import com.example.android.absensiapp.presentation.changepass.ChangePasswordActivity
+import com.example.android.absensiapp.presentation.login.LoginActivity
+import com.example.android.absensiapp.presentation.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -52,9 +51,10 @@ class ProfileFragment : Fragment() {
         val user = HawkStorage.instance(context).getUser()
         val imageUrl = BuildConfig.BASE_IMAGE_URL + user.photo
         binding?.ivProfile?.let {
-            Glide.with(context!!).load(imageUrl).placeholder(android.R.color.darker_gray).into(
-                it
-            )
+            Glide.with(requireContext()).load(imageUrl).placeholder(android.R.color.darker_gray)
+                .into(
+                    it
+                )
         }
         binding?.tvNameProfile?.text = user.name
         binding?.tvEmailProfile?.text = user.email
@@ -62,7 +62,7 @@ class ProfileFragment : Fragment() {
 
     private fun onClick() {
         binding?.btnChangePassword?.setOnClickListener {
-            context?.startActivity<ChangePasswordActivity>()
+            requireActivity().startActivity(Intent(context, ChangePasswordActivity::class.java))
         }
 
         binding?.btnChangeLanguage?.setOnClickListener {
@@ -73,7 +73,7 @@ class ProfileFragment : Fragment() {
             AlertDialog.Builder(context)
                 .setTitle(getString(R.string.logout))
                 .setMessage(getString(R.string.are_you_sure))
-                .setPositiveButton(getString(R.string.yes)){ dialog, _ ->
+                .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
                     logoutRequest(dialog)
                 }
                 .setNegativeButton(getString(R.string.no)) { dialog, _ ->
@@ -88,7 +88,7 @@ class ProfileFragment : Fragment() {
         MyDialog.showProgressDialog(context)
         ApiServices.getLiveAttendanceServices()
             .logoutRequest("Bearer $token")
-            .enqueue(object : Callback<LogoutResponse>{
+            .enqueue(object : Callback<LogoutResponse> {
                 override fun onResponse(
                     call: Call<LogoutResponse>,
                     response: Response<LogoutResponse>
@@ -98,16 +98,24 @@ class ProfileFragment : Fragment() {
                     if (response.isSuccessful) {
                         HawkStorage.instance(context).deleteAll()
                         (activity as MainActivity).finishAffinity()
-                        context?.startActivity<LoginActivity>()
+                        requireActivity().startActivity(Intent(context, LoginActivity::class.java))
                     } else {
-                        MyDialog.dynamicDialog(context, getString(R.string.alert), getString(R.string.something_wrong))
+                        MyDialog.dynamicDialog(
+                            context,
+                            getString(R.string.alert),
+                            getString(R.string.something_wrong)
+                        )
                     }
                 }
 
                 override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                     dialog.dismiss()
                     MyDialog.hideDialog()
-                    MyDialog.dynamicDialog(context, getString(R.string.alert), "Error : ${t.message}")
+                    MyDialog.dynamicDialog(
+                        context,
+                        getString(R.string.alert),
+                        "Error : ${t.message}"
+                    )
                 }
             })
     }

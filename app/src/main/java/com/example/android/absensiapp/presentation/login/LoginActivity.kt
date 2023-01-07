@@ -1,5 +1,6 @@
-package com.example.android.absensiapp.views.login
+package com.example.android.absensiapp.presentation.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -11,11 +12,10 @@ import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.LoginResponse
 import com.example.android.absensiapp.networking.ApiServices
 import com.example.android.absensiapp.networking.RetrofitClient
-import com.example.android.absensiapp.views.forgotpass.ForgotPasswordActivity
-import com.example.android.absensiapp.views.main.MainActivity
+import com.example.android.absensiapp.presentation.forgotpass.ForgotPasswordActivity
+import com.example.android.absensiapp.presentation.main.MainActivity
 import com.google.gson.Gson
 import okhttp3.ResponseBody
-import org.jetbrains.anko.startActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Converter
@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnForgotPassword.setOnClickListener {
-            startActivity<ForgotPasswordActivity>()
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
 
@@ -102,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun gotoMain() {
-        startActivity<MainActivity>()
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 

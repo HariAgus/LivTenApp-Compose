@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.views.attendance
+package com.example.android.absensiapp.presentation.attendance
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
@@ -49,7 +49,6 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,7 +56,6 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
 
 class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
@@ -117,7 +115,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     override fun onDestroy() {
         super.onDestroy()
         if (currentLocation != null && locationCallback != null) {
-            fusedLocationProviderClient?.removeLocationUpdates(locationCallback)
+            fusedLocationProviderClient?.removeLocationUpdates(locationCallback!!)
         }
     }
 
@@ -147,7 +145,6 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
                     val file = File(currentPhotoPath)
                     file.delete()
                     currentPhotoPath = ""
-                    context?.toast(getString(R.string.failed_to_capture_image))
                 }
             }
         }
@@ -204,7 +201,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
             val file = File(currentPhotoPath)
             val uri = FileProvider.getUriForFile(
-                context!!,
+                requireContext(),
                 BuildConfig.APPLICATION_ID + ".fileprovider", file
             )
             val typeFile = context?.contentResolver?.getType(uri)
@@ -313,11 +310,11 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     private fun checkIsCheckIn() {
         if (isCheckIn) {
             bindingBottomSheet?.btnCheckIn?.background =
-                ContextCompat.getDrawable(context!!, R.drawable.bg_check_out)
+                ContextCompat.getDrawable(requireContext(), R.drawable.bg_check_out)
             bindingBottomSheet?.btnCheckIn?.text = getString(R.string.check_out)
         } else {
             bindingBottomSheet?.btnCheckIn?.background =
-                ContextCompat.getDrawable(context!!, R.drawable.bg_btn_primary)
+                ContextCompat.getDrawable(requireContext(), R.drawable.bg_btn_primary)
             bindingBottomSheet?.btnCheckIn?.text = getString(R.string.check_in)
         }
     }
@@ -369,8 +366,9 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     private fun init() {
         //Setup Location
         locationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
-        settingsClient = LocationServices.getSettingsClient(context!!)
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!)
+        settingsClient = LocationServices.getSettingsClient(requireContext())
+        fusedLocationProviderClient =
+            LocationServices.getFusedLocationProviderClient(requireContext())
         locationRequest = LocationRequest()
             .setInterval(10000)
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -447,9 +445,9 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
         mapAttendance?.getMapAsync(this)
     }
 
-    override fun onMapReady(googleMap: GoogleMap?) {
+    override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style_json))
+        map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.style_json))
         if (checkPermission()) {
             val university = LatLng(-6.252261, 107.002559)
             map?.moveCamera(CameraUpdateFactory.newLatLng(university))
@@ -469,9 +467,9 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
                 map?.uiSettings?.isMyLocationButtonEnabled = false
 
                 locationCallback = object : LocationCallback() {
-                    override fun onLocationResult(locationResult: LocationResult?) {
+                    override fun onLocationResult(locationResult: LocationResult) {
                         super.onLocationResult(locationResult)
-                        currentLocation = locationResult?.lastLocation
+                        currentLocation = locationResult.lastLocation
 
                         if (currentLocation != null) {
                             val latitude = currentLocation?.latitude
@@ -491,7 +489,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
                     }
                 }
                 fusedLocationProviderClient?.requestLocationUpdates(
-                    locationRequest, locationCallback, Looper.myLooper()
+                    locationRequest!!, locationCallback!!, Looper.myLooper()
                 )
             } else {
                 gotoTurnOnGps()
@@ -507,7 +505,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
             val geocode = Geocoder(it, Locale.getDefault())
             val addresses = geocode.getFromLocation(latitude, longitude, 1)
 
-            if (addresses.size > 0) {
+            if (addresses!!.size > 0) {
                 result = addresses[0].getAddressLine(0)
                 return result
             }
@@ -517,7 +515,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
 
     private fun gotoTurnOnGps() {
-        settingsClient?.checkLocationSettings(locationSettingRequest)
+        settingsClient?.checkLocationSettings(locationSettingRequest!!)
             ?.addOnSuccessListener {
                 goToCurrentLocation()
             }?.addOnFailureListener {
@@ -526,7 +524,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
                         try {
                             val resolvableApiException = it as ResolvableApiException
                             resolvableApiException.startResolutionForResult(
-                                activity, REQUEST_CODE_LOCATION
+                                requireActivity(), REQUEST_CODE_LOCATION
                             )
                         } catch (ex: IntentSender.SendIntentException) {
                             ex.printStackTrace()

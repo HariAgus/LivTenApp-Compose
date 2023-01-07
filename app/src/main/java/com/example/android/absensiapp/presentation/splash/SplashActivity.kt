@@ -1,14 +1,14 @@
-package com.example.android.absensiapp.views.splash
+package com.example.android.absensiapp.presentation.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.absensiapp.R
 import com.example.android.absensiapp.hawkstorage.HawkStorage
-import com.example.android.absensiapp.views.login.LoginActivity
-import com.example.android.absensiapp.views.main.MainActivity
-import org.jetbrains.anko.startActivity
+import com.example.android.absensiapp.presentation.login.LoginActivity
+import com.example.android.absensiapp.presentation.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -29,10 +29,10 @@ class SplashActivity : AppCompatActivity() {
     private fun checkIfLogin() {
         val isLogin = HawkStorage.instance(this).isLogin()
         if (isLogin) {
-            startActivity<MainActivity>()
+            startActivity(Intent(this, MainActivity::class.java))
             finishAffinity()
         } else {
-            startActivity<LoginActivity>()
+            startActivity(Intent(this, LoginActivity::class.java))
             finishAffinity()
         }
     }

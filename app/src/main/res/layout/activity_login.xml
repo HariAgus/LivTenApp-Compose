@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/colorPrimaryDark"
-    tools:context=".views.login.LoginActivity">
+    tools:context=".presentation.login.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

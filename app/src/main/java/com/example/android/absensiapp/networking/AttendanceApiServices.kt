@@ -1,7 +1,6 @@
 package com.example.android.absensiapp.networking
 
 import com.example.android.absensiapp.model.*
-import com.example.android.absensiapp.views.changepass.ChangePasswordRequest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call

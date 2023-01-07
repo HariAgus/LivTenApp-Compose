@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.views.changepass
+package com.example.android.absensiapp.presentation.changepass
 
 import android.os.Bundle
 import android.os.Handler
@@ -13,7 +13,6 @@ import com.example.android.absensiapp.model.ChangePasswordResponse
 import com.example.android.absensiapp.model.LoginResponse
 import com.example.android.absensiapp.networking.ApiServices
 import com.example.android.absensiapp.networking.RetrofitClient
-import com.example.android.absensiapp.views.login.LoginActivity
 import com.google.gson.Gson
 import okhttp3.ResponseBody
 import retrofit2.Call

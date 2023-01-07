@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.main.MainActivity">
+    tools:context=".presentation.main.MainActivity">
 
     <FrameLayout
         android:id="@+id/frame_main"
@@ -13,12 +13,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btm_navigation_main"/>
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btm_navigation_main"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:cnb_menuResource="@menu/main_menu"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:menu="@menu/main_menu"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
