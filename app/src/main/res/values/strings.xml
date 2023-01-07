@@ -41,4 +41,5 @@
     <string name="failed">Failed</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="image_logo_app">Image Logo App</string>
+    <string name="image_arrow_back">Image Arrow Back</string>
 </resources>

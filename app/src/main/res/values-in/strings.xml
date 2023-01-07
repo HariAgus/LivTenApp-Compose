@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">LivTen</string>
     <string name="hello_sign_in_your_account">Halo, Masukan Akun mu</string>
-    <string name="email">Alamat Surel</string>
+    <string name="email">Alamat Email</string>
     <string name="password">Kata Sandi</string>
     <string name="login">Masuk</string>
     <string name="forgot_password">Lupa Sandi</string>
@@ -19,8 +19,8 @@
     <string name="new_password">Sandi Baru</string>
     <string name="confirm_new_password">Konfirmasi Sandi Baru</string>
     <string name="attendance">Absen</string>
-    <string name="please_field_your_email">Mohon masukan alamat surel kamu</string>
-    <string name="please_use_valid_email">Mohon gunakan alamat surel yang benar</string>
+    <string name="please_field_your_email">Mohon masukan alamat Email kamu</string>
+    <string name="please_use_valid_email">Mohon gunakan alamat Email yang benar</string>
     <string name="please_field_your_password">Mohon masukan sandi kamu</string>
     <string name="failed">Gagal</string>
     <string name="success">Sukses</string>

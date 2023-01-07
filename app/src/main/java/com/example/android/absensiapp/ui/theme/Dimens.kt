@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.presentation.splash.ui.theme
+package com.example.android.absensiapp.ui.theme
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
