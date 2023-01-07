@@ -6,21 +6,18 @@
         android:id="@+id/action_history"
         android:icon="@drawable/ic_baseline_history_24"
         android:title="@string/history"
-        app:cnb_iconColor="@color/white"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_attendance"
         android:icon="@drawable/ic_baseline_location_on_24"
         android:title="@string/attendance"
-        app:cnb_iconColor="@color/white"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile"
-        app:cnb_iconColor="@color/white"
         app:showAsAction="ifRoom" />
 
 </menu>
