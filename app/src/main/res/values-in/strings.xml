@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Live Attendance App</string>
+    <string name="app_name">LivTen</string>
     <string name="hello_sign_in_your_account">Halo, Masukan Akun mu</string>
     <string name="email">Alamat Surel</string>
     <string name="password">Kata Sandi</string>

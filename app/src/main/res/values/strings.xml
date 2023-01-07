@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Live Attendance</string>
+    <string name="app_name">LivTen</string>
     <string name="hello_sign_in_your_account">Hello, Sign in Your Account</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -39,4 +39,6 @@
     <string name="please_use_valid_email">Please use valid email</string>
     <string name="please_field_your_password">Please field your password</string>
     <string name="failed">Failed</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="image_logo_app">Image Logo App</string>
 </resources>
