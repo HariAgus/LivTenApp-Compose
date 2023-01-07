@@ -5,6 +5,7 @@ buildscript {
         compose_ui_version = '1.3.2'
         accompanist_version = '0.21.2-beta'
         nav_version = '2.5.3'
+        calendar_version = '1.2.0'
     }
     repositories {
         google()

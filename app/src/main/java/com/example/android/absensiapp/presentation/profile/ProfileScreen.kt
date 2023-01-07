@@ -21,14 +21,24 @@ import com.example.android.absensiapp.presentation.component.ButtonCommon
 import com.example.android.absensiapp.ui.theme.*
 
 @Composable
-fun ProfileScreen(onClickChangePassword: () -> Unit) {
-    Profile(onClickChangePassword = { onClickChangePassword.invoke() })
+fun ProfileScreen(
+    onClickChangePassword: () -> Unit,
+    onClickChangeLanguage: () -> Unit,
+    onClickLogout: () -> Unit,
+) {
+    Profile(
+        onClickChangePassword = { onClickChangePassword.invoke() },
+        onClickChangeLanguage = { onClickChangeLanguage.invoke() },
+        onClickLogout = { onClickLogout.invoke() }
+    )
 }
 
 @Composable
 fun Profile(
     modifier: Modifier = Modifier,
-    onClickChangePassword: () -> Unit
+    onClickChangePassword: () -> Unit,
+    onClickChangeLanguage: () -> Unit,
+    onClickLogout: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -58,7 +68,9 @@ fun Profile(
         Spacer(modifier = Modifier.height(DIMENS_32dp))
 
         ProfileContent(
-            onClickChangePassword = { onClickChangePassword.invoke() }
+            onClickChangePassword = { onClickChangePassword.invoke() },
+            onClickChangeLanguage = { onClickChangeLanguage.invoke() },
+            onClickLogout = { onClickLogout.invoke() }
         )
     }
 }
@@ -66,7 +78,9 @@ fun Profile(
 @Composable
 fun ProfileContent(
     modifier: Modifier = Modifier,
-    onClickChangePassword: () -> Unit
+    onClickChangePassword: () -> Unit,
+    onClickChangeLanguage: () -> Unit,
+    onClickLogout: () -> Unit,
 ) {
     Card(
         modifier = modifier,
@@ -126,7 +140,7 @@ fun ProfileContent(
                 backgroundColor = PrimaryColor,
                 title = stringResource(id = R.string.change_language)
             ) {
-                onClickChangePassword.invoke()
+                onClickChangeLanguage.invoke()
             }
 
             Spacer(modifier = Modifier.height(DIMENS_12dp))
@@ -135,7 +149,7 @@ fun ProfileContent(
                 backgroundColor = AlertColor,
                 title = stringResource(id = R.string.logout)
             ) {
-                onClickChangePassword.invoke()
+                onClickLogout.invoke()
             }
         }
     }
@@ -144,5 +158,9 @@ fun ProfileContent(
 @Preview(showBackground = true)
 @Composable
 fun ProfilePreview() {
-    ProfileScreen(onClickChangePassword = {})
+    ProfileScreen(
+        onClickChangePassword = {},
+        onClickChangeLanguage = {},
+        onClickLogout = {}
+    )
 }
