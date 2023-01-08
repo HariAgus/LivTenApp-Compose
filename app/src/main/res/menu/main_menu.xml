@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_history"
+        android:id="@+id/historyFragment"
         android:icon="@drawable/ic_baseline_history_24"
         android:title="@string/history"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_attendance"
+        android:id="@+id/attendanceFragment"
         android:icon="@drawable/ic_baseline_location_on_24"
         android:title="@string/attendance"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/profile"
         app:showAsAction="ifRoom" />

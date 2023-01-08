@@ -20,9 +20,9 @@ import com.example.android.absensiapp.date.MyDate.toMonth
 import com.example.android.absensiapp.date.MyDate.toTime
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import com.example.android.absensiapp.model.History
 import com.example.android.absensiapp.model.HistoryResponse
-import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,12 +38,16 @@ class HistoryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         return ComposeView(requireContext()).apply {
             setContent {
                 HistoryScreen()
             }
         }
+
+        /*binding = FragmentHistoryBinding.inflate(inflater, container, false)
+
+        return binding?.root*/
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
