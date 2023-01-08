@@ -2,6 +2,7 @@ package com.example.android.absensiapp.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.fragment.app.Fragment
 import com.example.android.absensiapp.R
 import com.example.android.absensiapp.databinding.ActivityMainBinding
@@ -9,6 +10,7 @@ import com.example.android.absensiapp.presentation.attendance.AttendanceFragment
 import com.example.android.absensiapp.presentation.history.HistoryFragment
 import com.example.android.absensiapp.presentation.profile.ProfileFragment
 
+@ExperimentalMaterialApi
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun init() {
         binding.btmNavigationMain.setOnNavigationItemSelectedListener {
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.action_history -> {
                     openFragment(HistoryFragment())
                     return@setOnNavigationItemSelectedListener true

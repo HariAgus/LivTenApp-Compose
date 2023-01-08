@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.presentation.component
+package com.example.android.absensiapp.presentation.attendance
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -14,13 +14,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.android.absensiapp.R
+import com.example.android.absensiapp.presentation.component.ButtonCommon
+import com.example.android.absensiapp.presentation.component.CardDateAndTime
 import com.example.android.absensiapp.ui.theme.*
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
+import com.google.maps.android.compose.rememberCameraPositionState
 
 @ExperimentalMaterialApi
 @Composable
@@ -45,12 +51,19 @@ fun BottomSheetAttendance(
             )
         },
         content = {
-            Image(
-                modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = R.drawable.img_photo_profile),
-                contentDescription = "",
-                contentScale = ContentScale.Crop
-            )
+            Box(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                GoogleMapContent()
+
+                Surface(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .padding(top = DIMENS_24dp),
+                ) {
+                    CardDateAndTime()
+                }
+            }
         }
     )
 }
@@ -145,6 +158,26 @@ fun BottomSheetAttendanceContent(
         ) {
             onClickCheckIn.invoke()
         }
+    }
+}
+
+@Composable
+fun GoogleMapContent(
+    modifier: Modifier = Modifier
+) {
+    val stmikBaniSaleh = LatLng(-6.252988600385395, 107.00312353736732)
+    val cameraPositionState = rememberCameraPositionState {
+        position = CameraPosition.fromLatLngZoom(stmikBaniSaleh, 20f)
+    }
+    GoogleMap(
+        modifier = modifier.fillMaxSize(),
+        cameraPositionState = cameraPositionState,
+    ) {
+        Marker(
+            state = MarkerState(position = stmikBaniSaleh),
+            title = "STMIK Bani Saleh",
+            snippet = "Marker in STMIK Bani Saleh"
+        )
     }
 }
 

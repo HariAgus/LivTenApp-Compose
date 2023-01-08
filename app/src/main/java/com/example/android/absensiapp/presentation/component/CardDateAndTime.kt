@@ -32,18 +32,19 @@ fun CardDateAndTime(
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(DIMENS_12dp),
-        backgroundColor = Color.Transparent,
-        border = BorderStroke(width = DIMENS_1dp, color = PrimaryColor)
+        backgroundColor = BgColor3,
+        border = BorderStroke(width = DIMENS_1dp, color = Color.White)
     ) {
         Column(
-            modifier = Modifier.padding(vertical = DIMENS_8dp, horizontal = DIMENS_24dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .padding(vertical = DIMENS_8dp, horizontal = DIMENS_24dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = currentDate,
-                fontWeight = FontWeight.Medium,
+                fontWeight = FontWeight.SemiBold,
                 color = TextColorSecond,
-                fontSize = TEXT_SIZE_12sp,
+                fontSize = TEXT_SIZE_14sp,
             )
 
             Spacer(modifier = Modifier.height(DIMENS_8dp))
@@ -52,7 +53,7 @@ fun CardDateAndTime(
                 text = currentTime,
                 fontWeight = FontWeight.Bold,
                 color = TextColorBlue,
-                fontSize = TEXT_SIZE_12sp,
+                fontSize = TEXT_SIZE_18sp,
             )
         }
     }
