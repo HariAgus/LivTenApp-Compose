@@ -11,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.android.absensiapp.R
+import com.example.android.absensiapp.presentation.component.CardHistoryCheckInOut
 import com.example.android.absensiapp.ui.theme.*
 import com.himanshoe.kalendar.Kalendar
 import com.himanshoe.kalendar.color.KalendarThemeColor
@@ -47,6 +48,8 @@ fun History(
         CalendarHistory()
 
         Spacer(modifier = Modifier.height(DIMENS_32dp))
+
+        CardHistoryCheckInOut(timeCheckInOrOut = stringResource(R.string.sample_time))
     }
 }
 

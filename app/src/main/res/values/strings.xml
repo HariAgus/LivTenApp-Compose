@@ -46,4 +46,7 @@
     <string name="image_photo_profile">Image Photo Profile</string>
     <string name="sample_name">Hari Agus W</string>
     <string name="sample_email">haryagus2023@gmail.com</string>
+    <string name="sample_date">03</string>
+    <string name="sample_month">September</string>
+    <string name="sample_time">10.00</string>
 </resources>
