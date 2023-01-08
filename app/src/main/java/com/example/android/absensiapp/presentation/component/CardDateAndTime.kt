@@ -1,7 +1,6 @@
 package com.example.android.absensiapp.presentation.component
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -12,7 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.android.absensiapp.ui.theme.*
@@ -32,18 +30,18 @@ fun CardDateAndTime(
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(DIMENS_12dp),
-        backgroundColor = Color.Transparent,
-        border = BorderStroke(width = DIMENS_1dp, color = PrimaryColor)
+        backgroundColor = BgColor3,
     ) {
         Column(
-            modifier = Modifier.padding(vertical = DIMENS_8dp, horizontal = DIMENS_24dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier
+                .padding(vertical = DIMENS_8dp, horizontal = DIMENS_24dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = currentDate,
-                fontWeight = FontWeight.Medium,
+                fontWeight = FontWeight.SemiBold,
                 color = TextColorSecond,
-                fontSize = TEXT_SIZE_12sp,
+                fontSize = TEXT_SIZE_14sp,
             )
 
             Spacer(modifier = Modifier.height(DIMENS_8dp))
@@ -52,7 +50,7 @@ fun CardDateAndTime(
                 text = currentTime,
                 fontWeight = FontWeight.Bold,
                 color = TextColorBlue,
-                fontSize = TEXT_SIZE_12sp,
+                fontSize = TEXT_SIZE_18sp,
             )
         }
     }

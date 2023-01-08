@@ -7,10 +7,12 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.ExperimentalMaterialApi
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.presentation.login.LoginActivity
 import com.example.android.absensiapp.presentation.main.MainActivity
 
+@ExperimentalMaterialApi
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 

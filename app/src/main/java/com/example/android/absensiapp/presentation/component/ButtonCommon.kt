@@ -37,7 +37,7 @@ fun ButtonCommon(
             text = title,
             fontWeight = FontWeight.Medium,
             fontSize = TEXT_SIZE_12sp,
-            color = Color.White
+            color = Color.White,
         )
     }
 }

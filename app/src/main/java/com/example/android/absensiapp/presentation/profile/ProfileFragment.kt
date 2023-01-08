@@ -9,6 +9,7 @@ import android.provider.Settings.ACTION_LOCALE_SETTINGS
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -26,6 +27,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+@ExperimentalMaterialApi
 class ProfileFragment : Fragment() {
 
     private var binding: FragmentProfileBinding? = null

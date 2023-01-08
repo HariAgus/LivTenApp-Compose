@@ -7,14 +7,15 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.mutableStateOf
 import com.example.android.absensiapp.R
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
-import com.example.android.absensiapp.model.LoginResponse
-import com.example.android.absensiapp.model.User
 import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import com.example.android.absensiapp.hawkstorage.networking.RetrofitClient
+import com.example.android.absensiapp.model.LoginResponse
+import com.example.android.absensiapp.model.User
 import com.example.android.absensiapp.presentation.forgotpass.ForgotPasswordActivity
 import com.example.android.absensiapp.presentation.main.MainActivity
 import com.google.gson.Gson
@@ -25,6 +26,7 @@ import retrofit2.Converter
 import retrofit2.Response
 import java.io.IOException
 
+@ExperimentalMaterialApi
 class LoginActivity : AppCompatActivity() {
 
     private var mEdtEmail = mutableStateOf("")
