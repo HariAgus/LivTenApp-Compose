@@ -19,6 +19,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.ui.platform.ComposeView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -31,9 +33,10 @@ import com.example.android.absensiapp.databinding.FragmentAttendanceBinding
 import com.example.android.absensiapp.date.MyDate
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import com.example.android.absensiapp.model.AttendanceResponse
 import com.example.android.absensiapp.model.HistoryResponse
-import com.example.android.absensiapp.hawkstorage.networking.ApiServices
+import com.example.android.absensiapp.presentation.component.BottomSheetAttendance
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -57,15 +60,8 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
+@ExperimentalMaterialApi
 class AttendanceFragment : Fragment(), OnMapReadyCallback {
-
-    companion object {
-        private const val REQUEST_CODE_MAP_PERMISSIONS = 1000
-        private const val REQUEST_CODE_CAMERA_PERMISSIONS = 1001
-        private const val REQUEST_CODE_LOCATION = 2000
-        private const val REQUEST_CODE_IMAGE_CAPTURE = 2001
-        private val TAG = AttendanceFragment::class.java.simpleName
-    }
 
     private val mapPermissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -100,12 +96,18 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentAttendanceBinding.inflate(inflater, container, false)
+    ): View {
+        /*binding = FragmentAttendanceBinding.inflate(inflater, container, false)
         bindingBottomSheet = binding?.layoutBottomSheet
+        return binding?.root*/
 
-
-        return binding?.root
+        return ComposeView(requireContext()).apply {
+            setContent {
+                BottomSheetAttendance(
+                    onClickCheckIn = {}
+                )
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -131,7 +133,6 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
         /*setupMaps()
         init()
         onClick()*/
-
 
     }
 
@@ -578,6 +579,14 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
             }
         }
         return isHasPermission
+    }
+
+    companion object {
+        private const val REQUEST_CODE_MAP_PERMISSIONS = 1000
+        private const val REQUEST_CODE_CAMERA_PERMISSIONS = 1001
+        private const val REQUEST_CODE_LOCATION = 2000
+        private const val REQUEST_CODE_IMAGE_CAPTURE = 2001
+        private val TAG = AttendanceFragment::class.java.simpleName
     }
 
 }

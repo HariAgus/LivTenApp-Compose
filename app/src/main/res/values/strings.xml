@@ -49,4 +49,7 @@
     <string name="sample_date">03</string>
     <string name="sample_month">September</string>
     <string name="sample_time">10.00</string>
+    <string name="image_location">Image Location</string>
+    <string name="sample_location">STMIK Bani Saleh Jln.Mayor Hasibuan No.17 Bks 1945</string>
+    <string name="image_add_photo">Image Add Photo</string>
 </resources>
