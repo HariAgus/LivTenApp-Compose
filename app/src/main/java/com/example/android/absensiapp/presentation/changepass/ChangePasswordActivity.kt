@@ -11,8 +11,8 @@ import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.ChangePasswordResponse
 import com.example.android.absensiapp.model.LoginResponse
-import com.example.android.absensiapp.networking.ApiServices
-import com.example.android.absensiapp.networking.RetrofitClient
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.RetrofitClient
 import com.google.gson.Gson
 import okhttp3.ResponseBody
 import retrofit2.Call

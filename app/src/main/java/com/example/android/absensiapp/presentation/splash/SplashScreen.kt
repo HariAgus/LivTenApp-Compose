@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.example.android.absensiapp.R
 import com.example.android.absensiapp.ui.theme.BgColor1
-import com.example.android.absensiapp.ui.theme.DIMENS_120dp
+import com.example.android.absensiapp.ui.theme.DIMENS_174dp
 import kotlinx.coroutines.delay
 
 @Composable
@@ -55,7 +55,7 @@ fun Splash(
         Image(
             modifier = Modifier
                 .scale(scale)
-                .size(DIMENS_120dp),
+                .size(DIMENS_174dp),
             painter = painterResource(id = R.drawable.ic_attendance),
             contentDescription = stringResource(R.string.image_logo_app)
         )

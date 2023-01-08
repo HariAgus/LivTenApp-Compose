@@ -9,6 +9,7 @@ import android.provider.Settings.ACTION_LOCALE_SETTINGS
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.android.absensiapp.BuildConfig
@@ -17,7 +18,7 @@ import com.example.android.absensiapp.databinding.FragmentProfileBinding
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.LogoutResponse
-import com.example.android.absensiapp.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import com.example.android.absensiapp.presentation.changepass.ChangePasswordActivity
 import com.example.android.absensiapp.presentation.login.LoginActivity
 import com.example.android.absensiapp.presentation.main.MainActivity
@@ -32,18 +33,21 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding?.root
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setContent {
+                ProfileScreen(
+                    onClickChangePassword = {},
+                    onClickChangeLanguage = {},
+                    onClickLogout = {}
+                )
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //OnClick
-        onClick()
 
-        //Fetching Data
-        updateView()
     }
 
     @SuppressLint("CheckResult")

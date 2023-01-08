@@ -69,9 +69,13 @@ fun ForgotPassword(
                 )
             }
         )
+
+        Spacer(modifier = Modifier.height(DIMENS_16dp))
+
         TextFieldCommon(
             text = text,
-            hint = stringResource(id = R.string.please_field_your_password),
+            hint = stringResource(id = R.string.please_field_your_email),
+            leadingIcon = R.drawable.ic_email,
             onValueChange = { onValueChange.invoke(it) }
         )
 

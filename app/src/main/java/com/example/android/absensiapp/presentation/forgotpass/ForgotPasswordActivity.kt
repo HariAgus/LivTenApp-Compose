@@ -12,8 +12,8 @@ import androidx.compose.runtime.mutableStateOf
 import com.example.android.absensiapp.R
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.model.ForgotPasswordResponse
-import com.example.android.absensiapp.networking.ApiServices
-import com.example.android.absensiapp.networking.RetrofitClient
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.RetrofitClient
 import com.google.gson.Gson
 import okhttp3.ResponseBody
 import retrofit2.Call

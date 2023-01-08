@@ -4,14 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.mutableStateOf
 import com.example.android.absensiapp.R
-import com.example.android.absensiapp.databinding.ActivityLoginBinding
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.LoginResponse
-import com.example.android.absensiapp.networking.ApiServices
-import com.example.android.absensiapp.networking.RetrofitClient
+import com.example.android.absensiapp.model.User
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.RetrofitClient
 import com.example.android.absensiapp.presentation.forgotpass.ForgotPasswordActivity
 import com.example.android.absensiapp.presentation.main.MainActivity
 import com.google.gson.Gson
@@ -24,27 +27,38 @@ import java.io.IOException
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private var mEdtEmail = mutableStateOf("")
+    private var mEdtPassword = mutableStateOf("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        onClick()
-    }
-
-    private fun onClick() {
-        binding.btnLogin.setOnClickListener {
-            val email = binding.etEmailLogin.text.toString()
-            val password = binding.etPasswordLogin.text.toString()
-            if (isFormValid(email, password)) {
-                loginToServer(email, password)
-            }
+        setContent {
+            LoginScreen(
+                email = mEdtEmail.value,
+                password = mEdtPassword.value,
+                onValueChangeEmail = { mEdtEmail.value = it },
+                onValueChangePassword = { mEdtPassword.value = it },
+                onClickForgotPassword = { onClickForgotPassword() },
+                onClickLogin = {
+                    // onClickLogin()
+                    val user = User(id = 1, name = "Hari Agus", email = "hariaguswidakdo@gmail.com")
+                    val token = "deDzndfdkmd|zDfdjnEr"
+                    HawkStorage.instance(this@LoginActivity).setUser(user)
+                    HawkStorage.instance(this@LoginActivity).setToken(token)
+                    gotoMain()
+                }
+            )
         }
 
-        binding.btnForgotPassword.setOnClickListener {
-            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+    }
+
+    private fun onClickForgotPassword() {
+        startActivity(Intent(this, ForgotPasswordActivity::class.java))
+    }
+
+    private fun onClickLogin() {
+        if (isFormValid(mEdtEmail.value, mEdtPassword.value)) {
+            loginToServer(email = mEdtEmail.value, password = mEdtPassword.value)
         }
     }
 
@@ -108,18 +122,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun isFormValid(email: String, password: String): Boolean {
         if (email.isEmpty()) {
-            binding.etEmailLogin.error = getString(R.string.please_field_your_email)
-            binding.etEmailLogin.requestFocus()
+            Toast.makeText(this, R.string.please_field_your_email, Toast.LENGTH_SHORT).show()
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.etEmailLogin.error = getString(R.string.please_use_valid_email)
-            binding.etEmailLogin.requestFocus()
+            Toast.makeText(this, R.string.please_use_valid_email, Toast.LENGTH_SHORT).show()
         } else if (password.isEmpty()) {
-            binding.etEmailLogin.error = null
-            binding.etPasswordLogin.error = getString(R.string.please_field_your_password)
-            binding.etPasswordLogin.requestFocus()
+            Toast.makeText(this, R.string.please_field_your_password, Toast.LENGTH_SHORT).show()
         } else {
-            binding.etEmailLogin.error = null
-            binding.etPasswordLogin.error = null
             return true
         }
         return false

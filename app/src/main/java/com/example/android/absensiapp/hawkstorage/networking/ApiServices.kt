@@ -1,10 +1,9 @@
-package com.example.android.absensiapp.networking
+package com.example.android.absensiapp.hawkstorage.networking
 
 object ApiServices {
 
     fun getLiveAttendanceServices(): AttendanceApiServices {
-        return RetrofitClient
-            .getClient()
+        return RetrofitClient.getClient()
             .create(AttendanceApiServices::class.java)
     }
 }

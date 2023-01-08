@@ -4,7 +4,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="forgot_password">Forgot Password</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="history">History</string>
     <string name="current_location">Current Location</string>
     <string name="default_text" translatable="false">-</string>
@@ -42,4 +42,11 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="image_logo_app">Image Logo App</string>
     <string name="image_arrow_back">Image Arrow Back</string>
+    <string name="leading_icon">Leading Icon</string>
+    <string name="image_photo_profile">Image Photo Profile</string>
+    <string name="sample_name">Hari Agus W</string>
+    <string name="sample_email">haryagus2023@gmail.com</string>
+    <string name="sample_date">03</string>
+    <string name="sample_month">September</string>
+    <string name="sample_time">10.00</string>
 </resources>

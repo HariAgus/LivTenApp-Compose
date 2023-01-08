@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     tools:context=".presentation.profile.ProfileFragment">
 
@@ -20,9 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:elevation="0dp"
             app:title="@string/profile"
-            app:titleTextColor="@android:color/white"
-            android:elevation="0dp"/>
+            app:titleTextColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -36,73 +36,74 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="160dp"
                 android:layout_height="150dp"
-                android:src="@drawable/logo_live_attendance"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp"
+                android:src="@drawable/logo_live_attendance" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginTop="20dp"
-                android:padding="16dp"
+                android:background="@drawable/bg_profile"
                 android:gravity="center_horizontal"
-                android:background="@drawable/bg_profile">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_profile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@android:color/darker_gray"/>
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_photo_profile" />
 
                 <TextView
                     android:id="@+id/tv_name_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/default_text"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:text="Hari Agus W"
                     android:textColor="@android:color/black"
-                    android:layout_marginTop="16dp"/>
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_email_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/default_text"
-                    android:textSize="16sp"/>
+                    android:text="haryagus97@gmail.com"
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/btn_change_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/change_password"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/bg_btn_primary"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="40dp"/>
+                    android:text="@string/change_password"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/btn_change_language"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/change_language"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/bg_btn_primary"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="20dp"/>
+                    android:text="@string/change_language"
+                    android:textColor="@android:color/white" />
 
                 <Button
                     android:id="@+id/btn_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/logout"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/bg_btn_logout"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="20dp"/>
+                    android:text="@string/logout"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 
