@@ -296,7 +296,6 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
                                 bindingBottomSheet?.btnCheckIn?.isEnabled = false
                                 bindingBottomSheet?.btnCheckIn?.text =
                                     getString(R.string.your_already_present)
-
                             }
                         } else {
                             isCheckIn = true

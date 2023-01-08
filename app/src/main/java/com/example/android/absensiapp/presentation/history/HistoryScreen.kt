@@ -43,7 +43,7 @@ fun History(
             fontWeight = FontWeight.Bold
         )
 
-        Spacer(modifier = Modifier.height(DIMENS_16dp))
+        Spacer(modifier = Modifier.height(DIMENS_12dp))
 
         CalendarHistory()
 
