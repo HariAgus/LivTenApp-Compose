@@ -6,4 +6,13 @@
     <color name="background">#FAFAFA</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary_jp">#6C5ECF</color>
+    <color name="colorSecondary_jp">#38ABBE</color>
+    <color name="colorBg1_jp">#1F1D2B</color>
+    <color name="colorBg2_jp">#2B2937</color>
+    <color name="colorBg3_jp">#242231</color>
+    <color name="colorBg4_jp">#252836</color>
+
+    <color name="color_unselected_bottom_view">#808191</color>
 </resources>

@@ -20,3 +20,5 @@ val TextColorPrimary = Color(0xFFF1F0F2)
 val TextColorSecond = Color(0xFF999999)
 val TextColorHint = Color(0xFF504F5E)
 val TextColorBlue = Color(0xFF2C96F1)
+
+val ColorInActiveBottomBar = Color(0XFF808191)
