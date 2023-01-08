@@ -95,7 +95,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         /*binding = FragmentAttendanceBinding.inflate(inflater, container, false)
         bindingBottomSheet = binding?.layoutBottomSheet
         return binding?.root*/
