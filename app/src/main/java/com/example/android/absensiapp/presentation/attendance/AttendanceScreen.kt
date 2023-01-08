@@ -10,10 +10,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,10 +28,8 @@ import com.example.android.absensiapp.presentation.component.CardDateAndTime
 import com.example.android.absensiapp.ui.theme.*
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.compose.GoogleMap
-import com.google.maps.android.compose.Marker
-import com.google.maps.android.compose.MarkerState
-import com.google.maps.android.compose.rememberCameraPositionState
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.maps.android.compose.*
 
 @ExperimentalMaterialApi
 @Composable
@@ -60,6 +63,8 @@ fun BottomSheetAttendance(
                     modifier = Modifier
                         .align(Alignment.TopCenter)
                         .padding(top = DIMENS_24dp),
+                    shape = RoundedCornerShape(DIMENS_12dp),
+                    color = Color.Transparent
                 ) {
                     CardDateAndTime()
                 }
@@ -165,13 +170,28 @@ fun BottomSheetAttendanceContent(
 fun GoogleMapContent(
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
+    val uiSettings by remember { mutableStateOf(MapUiSettings()) }
+    val properties by remember {
+        mutableStateOf(
+            MapProperties(
+                mapStyleOptions = MapStyleOptions.loadRawResourceStyle(
+                    context,
+                    R.raw.google_map_style_json
+                )
+            )
+        )
+    }
     val stmikBaniSaleh = LatLng(-6.252988600385395, 107.00312353736732)
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(stmikBaniSaleh, 20f)
     }
+
     GoogleMap(
         modifier = modifier.fillMaxSize(),
         cameraPositionState = cameraPositionState,
+        uiSettings = uiSettings,
+        properties = properties
     ) {
         Marker(
             state = MarkerState(position = stmikBaniSaleh),

@@ -451,7 +451,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.style_json))
+        map?.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.google_map_style_json))
         if (checkPermission()) {
             val university = LatLng(-6.252261, 107.002559)
             map?.moveCamera(CameraUpdateFactory.newLatLng(university))

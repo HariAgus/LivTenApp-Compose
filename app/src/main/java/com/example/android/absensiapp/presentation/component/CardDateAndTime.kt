@@ -1,7 +1,6 @@
 package com.example.android.absensiapp.presentation.component
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -12,7 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.android.absensiapp.ui.theme.*
@@ -33,7 +31,6 @@ fun CardDateAndTime(
         modifier = modifier,
         shape = RoundedCornerShape(DIMENS_12dp),
         backgroundColor = BgColor3,
-        border = BorderStroke(width = DIMENS_1dp, color = Color.White)
     ) {
         Column(
             modifier = Modifier
