@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener
@@ -21,7 +22,7 @@ import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.History
 import com.example.android.absensiapp.model.HistoryResponse
-import com.example.android.absensiapp.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,14 +38,16 @@ class HistoryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHistoryBinding.inflate(inflater, container, false)
-        return binding?.root
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setContent {
+                HistoryScreen()
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
     }
 

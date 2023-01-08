@@ -13,8 +13,8 @@ import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.LoginResponse
 import com.example.android.absensiapp.model.User
-import com.example.android.absensiapp.networking.ApiServices
-import com.example.android.absensiapp.networking.RetrofitClient
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.RetrofitClient
 import com.example.android.absensiapp.presentation.forgotpass.ForgotPasswordActivity
 import com.example.android.absensiapp.presentation.main.MainActivity
 import com.google.gson.Gson

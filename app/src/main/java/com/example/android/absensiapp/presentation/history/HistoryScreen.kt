@@ -36,14 +36,14 @@ fun History(
             modifier = Modifier
                 .align(Alignment.Start)
                 .fillMaxWidth()
-                .padding(top = DIMENS_32dp, start = DIMENS_16dp),
+                .padding(top = DIMENS_18dp, start = DIMENS_16dp),
             text = stringResource(id = R.string.profile),
             fontSize = TEXT_SIZE_16sp,
             color = TextColorPrimary,
             fontWeight = FontWeight.Bold
         )
 
-        Spacer(modifier = Modifier.height(DIMENS_32dp))
+        Spacer(modifier = Modifier.height(DIMENS_16dp))
 
         CalendarHistory()
 

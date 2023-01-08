@@ -18,7 +18,7 @@ import com.example.android.absensiapp.databinding.FragmentProfileBinding
 import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.LogoutResponse
-import com.example.android.absensiapp.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import com.example.android.absensiapp.presentation.changepass.ChangePasswordActivity
 import com.example.android.absensiapp.presentation.login.LoginActivity
 import com.example.android.absensiapp.presentation.main.MainActivity

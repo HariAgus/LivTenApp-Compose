@@ -1,4 +1,4 @@
-package com.example.android.absensiapp.networking
+package com.example.android.absensiapp.hawkstorage.networking
 
 import com.example.android.absensiapp.BuildConfig
 import com.google.gson.GsonBuilder

@@ -33,7 +33,7 @@ import com.example.android.absensiapp.dialog.MyDialog
 import com.example.android.absensiapp.hawkstorage.HawkStorage
 import com.example.android.absensiapp.model.AttendanceResponse
 import com.example.android.absensiapp.model.HistoryResponse
-import com.example.android.absensiapp.networking.ApiServices
+import com.example.android.absensiapp.hawkstorage.networking.ApiServices
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*

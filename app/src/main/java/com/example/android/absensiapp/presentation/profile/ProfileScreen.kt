@@ -49,7 +49,7 @@ fun Profile(
             modifier = Modifier
                 .align(Alignment.Start)
                 .fillMaxWidth()
-                .padding(top = DIMENS_32dp, start = DIMENS_16dp),
+                .padding(top = DIMENS_18dp, start = DIMENS_16dp),
             text = stringResource(id = R.string.profile),
             fontSize = TEXT_SIZE_16sp,
             color = TextColorPrimary,
@@ -96,7 +96,7 @@ fun ProfileContent(
         ) {
             Card(
                 modifier = Modifier
-                    .padding(DIMENS_24dp)
+                    .padding(top = DIMENS_24dp)
                     .align(Alignment.CenterHorizontally),
                 border = BorderStroke(width = DIMENS_2dp, color = SecondaryColor),
                 shape = RoundedCornerShape(DIMENS_80dp),
@@ -108,6 +108,8 @@ fun ProfileContent(
                     contentScale = ContentScale.Crop
                 )
             }
+
+            Spacer(modifier = Modifier.height(DIMENS_8dp))
 
             Text(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -125,7 +127,7 @@ fun ProfileContent(
                 fontWeight = FontWeight.Medium
             )
 
-            Spacer(modifier = Modifier.height(DIMENS_16dp))
+            Spacer(modifier = Modifier.height(DIMENS_24dp))
 
             ButtonCommon(
                 backgroundColor = PrimaryColor,
