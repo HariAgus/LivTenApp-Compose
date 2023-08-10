@@ -9,6 +9,10 @@
 
 LivTen App is an application for online-based attendance by using a camera and location. Because in today's era many companies or startups implement a WFA (Working From Anywhere) work system, this application is needed to support attendance.
 
+## Dependencies
+- [Compose UI](https://developer.android.com/jetpack/androidx/releases/compose-ui)
+- [Accompanist System UI Controller](https://google.github.io/accompanist/systemuicontroller/)
+
 <p align="center">
   <img src="assets/Cover Live Attendance.png"/>
 </p>
