@@ -17,4 +17,5 @@ LivTen App is an application for online-based attendance by using a camera and l
 ## Dependencies
 - [Compose UI](https://developer.android.com/jetpack/androidx/releases/compose-ui)
 - [Accompanist System UI Controller](https://google.github.io/accompanist/systemuicontroller/)
+- [Accompanist System UI Controller](https://google.github.io/accompanist/systemuicontroller/)
 
